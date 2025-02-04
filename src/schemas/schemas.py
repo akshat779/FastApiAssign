@@ -15,10 +15,12 @@ class UserBase(BaseModel):
 
 class CreateUser(UserBase):
     password:str
+    
+
 
 class User(UserBase):
     id:int
-    tenantId = Optional[int]
+    tenantId:Optional[int]
 
     class Config:
         orm_mode = True
