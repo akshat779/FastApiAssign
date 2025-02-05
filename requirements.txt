@@ -4,3 +4,4 @@ python-jose
 python-multipart
 sqlalchemy
 passlib
+fastapi-keycloak

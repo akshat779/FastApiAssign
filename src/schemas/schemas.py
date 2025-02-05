@@ -16,8 +16,6 @@ class UserBase(BaseModel):
 class CreateUser(UserBase):
     password:str
     
-
-
 class User(UserBase):
     id:int
     tenantId:Optional[int]
@@ -30,7 +28,7 @@ class TenantBase(BaseModel):
     name: str
 
 class CreateTenant(TenantBase):
-    pass
+    password:str
 
 class Tenant(TenantBase):
     id:int
@@ -83,3 +81,11 @@ class Order(OrderBase):
 
     class Config:
         orm_mode = True
+
+
+class TokenData(BaseModel):
+    user_id: Optional[str] = None
+
+class LoginUser(BaseModel):
+    username: str
+    password: str

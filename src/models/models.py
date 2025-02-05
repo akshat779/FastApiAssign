@@ -14,7 +14,7 @@ class User(Base):
     username = Column(String, unique=True, index=True)
     name = Column(String)
     password = Column(String)
-    role = Column(Enum(Roles))
+    role = Column(Enum(Roles))  
     tenant_id = Column(Integer, ForeignKey("tenants.id"))
     tenant = relationship("Tenant", back_populates="users")
     orders = relationship("Order", back_populates="user")
@@ -23,6 +23,7 @@ class Tenant(Base):
     __tablename__ = 'tenants'
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
+    password = Column(String)
     users = relationship("User", back_populates="tenant")
     products = relationship("Product", back_populates="tenant")
 
